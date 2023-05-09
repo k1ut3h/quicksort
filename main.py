@@ -5,7 +5,7 @@ def quicksort(arr):
         if (arr[1]<arr[0]):
             arr[0], arr[1] = arr[1], arr[0]
         return arr
-    pivot = arr[0];
+    pivot = arr[int(len(arr)/2)];
     smaller = [i for i in arr[1:] if i<=pivot]
     larger = [i for i in arr[1:] if i>pivot]
 
