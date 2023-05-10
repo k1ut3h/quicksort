@@ -3,14 +3,17 @@ import random;
 def quicksort(arr):
     if (len(arr)<2):
         return arr
-    if (len(arr)==2):
-        if (arr[1]<arr[0]):
-            arr[0], arr[1] = arr[1], arr[0]
-        return arr
-    pivot = arr[random.randrange(0,len(arr))];
-    smaller = [i for i in arr[1:] if i<=pivot]
-    larger = [i for i in arr[1:] if i>pivot]
+    idx = random.randrange(0,len(arr))    
+    pivot = arr[idx];
+    smaller = []
+    larger = []
+    for i in range(len(arr)):
+        if i!=idx:
+            if arr[i]<=pivot:
+                smaller.append(arr[i])
+            else:
+                larger.append(arr[i])
 
     return quicksort(smaller)+[pivot]+quicksort(larger)
 
-print(quicksort([10,10,5,1,3,546,2342,5,3,23,52,2]))
+print(quicksort([5,5,4,3,2,2,1]))
